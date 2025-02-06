@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      # - WEBHOOK_URL=http://ngrok:4040/api/tunnels  # Используем ngrok для получения внешнего URL
+    volumes:
+      - ~/.n8n:/home/node/.n8n  # Для сохранения настроек
+    # depends_on:
+      # - ngrok  # Указываем зависимость от ngrok
+
+  # ngrok:
+  #   image: ngrok/ngrok:latest
+  #   command: ["ngrok", "http", "n8n:5678"]  # Пробрасываем порт n8n через ngrok
+  #   environment:
+  #     - NGROK_AUTHTOKEN=2seNw5CImmo95X31IjA6mdjuQUo_6uenszLHTwnqXNhnrttY  # Ваш ngrok токен
+  #   ports:
+  #     - "4040:4040"  # Порт для панели управления ngrok, чтобы отслеживать статус туннеля
+
