@@ -12,4 +12,4 @@
 3. Run ngrok to tunnel n8n: `ngrok http http://0.0.0.0:5678`
 4. Use the ngrok URL to access n8n and start working.
 
-
+**Note:** `ngrok` is required because some services (e.g., Gmail) do not work with `localhost` and require a domain name. `ngrok` provides a public URL for your local n8n instance.
